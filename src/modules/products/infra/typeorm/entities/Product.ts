@@ -8,7 +8,7 @@ import {
 } from 'typeorm';
 
 import OrdersProducts from '@modules/orders/infra/typeorm/entities/OrdersProducts';
-import CreateCustomerService from '@modules/customers/services/CreateCustomerService';
+// import CreateCustomerService from '@modules/customers/services/CreateCustomerService';
 
 @Entity('products')
 class Product {
@@ -24,7 +24,7 @@ class Product {
   @Column('int')
   quantity: number;
 
-  // @OneToMany(() => OrdersProducts, order_products => order_products.product)
+  @OneToMany(() => OrdersProducts, order_products => order_products.product)
   order_products: OrdersProducts[];
 
   @CreateDateColumn()
